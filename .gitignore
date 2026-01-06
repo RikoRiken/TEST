@@ -1,0 +1,15 @@
+# --- Environnement Virtuel ---
+.venv/
+
+# --- IDE et Système (Fichiers de config perso) ---
+.vscode/
+
+# --- TESTS ---
+.pytest_cache/
+__pycache__/
+
+# --- Fichiers Sensibles ---
+passwords/
+auth.crypt
+*.crypt
+*.key
