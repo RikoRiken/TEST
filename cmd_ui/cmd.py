@@ -131,7 +131,7 @@ def get():
     donnees = manager.lire_fichier_binaire(nom_fichier)
 
     # 2. DOUBLE VÉRIFICATION DE SÉCURITÉ
-    check_pwd = Prompt.ask(f"[bold orange3]\n🔒 Sécurité : Confirmez votre mot de passe pour voir '{service}'[/]", password=True)
+    check_pwd = Prompt.ask(f"[orange3]\n🔒 Sécurité : Confirmez votre mot de passe pour voir[/] [bold orange3]'{service}'[/]", password=True)
 
     if check_pwd != MASTER_PASSWORD:
         console.print("[bold red]❌ Mot de passe incorrect. Accès refusé.[/bold red]")
