@@ -28,7 +28,7 @@ def obtenir_chemin(nom_fichier: str) -> str:
 def lire_fichier_binaire(nom_fichier: str):
 
     if not verifier_securite_nom(nom_fichier):
-        return None
+        return False
     
     """Lit un fichier dans le dossier passwords/"""
     chemin = obtenir_chemin(nom_fichier)
@@ -44,7 +44,7 @@ def lire_fichier_binaire(nom_fichier: str):
 def ecrire_fichier_binaire(nom_fichier: str, donnees: bytes):
 
     if not verifier_securite_nom(nom_fichier):
-        return None
+        return False
     
 
     """Écrit un fichier dans le dossier passwords/"""
@@ -61,7 +61,7 @@ def ecrire_fichier_binaire(nom_fichier: str, donnees: bytes):
 def supprimer_fichier_binaire(nom_fichier: str) -> bool:
 
     if not verifier_securite_nom(nom_fichier):
-        return None
+        return False
     
     # Supprime définitivement un fichier du coffre.
     chemin = obtenir_chemin(nom_fichier)
