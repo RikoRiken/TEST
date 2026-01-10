@@ -1,5 +1,6 @@
 # --- Fonction d'authentification pour l'utilisateur Root ---
- 
+
+import string
 from security import crypto
 from file_io import manager
 
@@ -31,3 +32,27 @@ def verifier_root(password: str) -> bool:
 
     cle_calculee, _ = crypto.deriver_cle(password, sel=sel_stocke)
     return cle_calculee == hash_stocke
+
+# Vérifie la robustesse du mot de passe
+def verifier_force_mdp(password: str) -> tuple[bool, str]:
+    # 1. Longueur minimale (12 est recommandé par l'ANSSI)
+    if len(password) < 12:
+        return False, "Le mot de passe doit faire au moins 12 caractères."
+
+    # 2. Au moins une majuscule
+    if not any(c.isupper() for c in password):
+        return False, "Le mot de passe doit contenir au moins une majuscule."
+
+    # 3. Au moins une minuscule
+    if not any(c.islower() for c in password):
+        return False, "Le mot de passe doit contenir au moins une minuscule."
+
+    # 4. Au moins un chiffre
+    if not any(c.isdigit() for c in password):
+        return False, "Le mot de passe doit contenir au moins un chiffre."
+
+    # 5. Au moins un caractère spécial (!@#$%^& etc.)
+    if not any(c in string.punctuation for c in password):
+        return False, "Le mot de passe doit contenir au moins un caractère spécial."
+
+    return True, "Mot de passe robuste."
