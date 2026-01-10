@@ -8,7 +8,7 @@ def main():
         cmd.afficher_aide()
         
         while True:
-            command = Prompt.ask("\n[bold red]root@GuardiaBox[/bold red][white]~[/white] ").strip().lower()
+            command = Prompt.ask("\n[bold red]root@KeyShell[/bold red][white]~[/white] ").strip().lower()
 
             if command == "exit": break
             elif command == "clear": cmd.afficher_header()

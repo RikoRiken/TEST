@@ -20,7 +20,7 @@ MASTER_PASSWORD = None
 def afficher_header():
     console.clear()
     console.print(Panel.fit(
-        "[bold red]GUARDIA BOX - ROOT ACCESS[/bold red]\n[italic white]Système Mono-Utilisateur Sécurisé[/italic white]",
+        "[bold red] KEYSHELL - ROOT ACCESS[/bold red]\n[italic white]Système Mono-Utilisateur Sécurisé[/italic white]",
         border_style="red"
     ))
 
