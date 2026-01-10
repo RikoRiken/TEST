@@ -50,11 +50,21 @@ def login_systeme():
     if not auth.est_inscrit():
         console.print(Panel("[bold yellow]INITIALISATION DU SYSTÈME[/bold yellow]\nVeuillez définir le mot de passe ROOT.", border_style="yellow"))
         
+        # On affiche les règles à l'utilisateur
+        console.print("[italic]Politique : 12 caractères minimum, 1 Maj., 1 Min., 1 Chiffre, 1 Spécial[/italic]\n")
+
         while True:
             pwd1 = Prompt.ask("Nouveau mot de passe Root", password=True)
+            
+            est_valide, message_erreur = auth.verifier_force_mdp(pwd1)
+            
+            if not est_valide:
+                console.print(f"[bold red]❌ {message_erreur}[/bold red]")
+                continue
+
             pwd2 = Prompt.ask("Confirmez le mot de passe", password=True)
             
-            if pwd1 == pwd2 and len(pwd1) > 0:
+            if pwd1 == pwd2:
                 if auth.inscrire_root(pwd1):
                     console.print("[bold green]Compte ROOT configuré ![/bold green]")
                     MASTER_PASSWORD = pwd1
