@@ -83,6 +83,7 @@ python3 main.py
 Upon launch, the user is greeted by the secure banner and must authenticate to decrypt the vault.
 
 Command *(On Windows)* = `.\KeyShell.bat`
+
 Command *(On Linux)* = `python3 main.py`
 
 <img src="/cmd_ui/assets/KeyShell_login.png">
